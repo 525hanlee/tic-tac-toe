@@ -1,5 +1,6 @@
-const startBtn = document.querySelectorAll('.start');
-const gameBoard = document.querySelector('#board');
+const startBtn = document.querySelectorAll('.startBtn');
+const startBoard = document.querySelector('#start');
+const gameBoard = document.querySelector('#play');
 const pawn = document.querySelectorAll('.pawn')
 const scoreBoard = document.querySelector('.scoreBoard');
 const svgX = `
@@ -18,7 +19,9 @@ const svgO = `
 `;
 let isX = false;
 function start() {
-
+    startBoard.classList.add('hide');
+    document.body.style.backgroundColor = "#FF6D70"
+    gameBoard.classList.remove('hide');
 }
 function handleBoardClick() {
     isX ? isX = false : isX = true;
@@ -37,9 +40,5 @@ function handleBoardClick() {
 
 
 
-
-
-
-
 startBtn.forEach(button => button.addEventListener('click', start));
-gameBoard.addEventListener('click', handleBoardClick)
+gameBoard.addEventListener('click', handleBoardClick);

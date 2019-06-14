@@ -1,0 +1,45 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background: black;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+#start{
+    width: 540px;
+    font-size: 100px;
+    font-style: normal;
+}
+#play{
+    width: 540px;
+}
+#start .row .col-4, #play .row .col-4{
+    height: 180px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.text-FF6D70{
+    color: #FF6D70;
+}
+.text-ED494C{
+    color: #ED494C;
+}
+.startBtn{
+    font-size: 48px;
+    background: white;
+}
+.startBtn{
+    margin-top: 30px;
+}
+.hide{
+    display: none;
+}
