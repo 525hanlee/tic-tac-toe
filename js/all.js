@@ -1,44 +1,130 @@
+/* Selector */
 const startBtn = document.querySelectorAll('.startBtn');
 const startBoard = document.querySelector('#start');
 const gameBoard = document.querySelector('#play');
-const pawn = document.querySelectorAll('.pawn')
-const scoreBoard = document.querySelector('.scoreBoard');
-const svgX = `
-<div class="svgX" style="clolr:white">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
-    </svg>
-</div>
-`;
-const svgO = `
-<div class="svgO">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z"/>
-    </svg>
-</div>
-`;
+const game = document.querySelector('.game');
+const ox = document.querySelectorAll('.ox');
+const scoreX = document.querySelector('.x-score');
+const scoreO = document.querySelector('.o-score');
+const Xturn = document.querySelector('.x-turn');
+const Oturn = document.querySelector('.o-turn');
+/* Winner Board */
+const Xwin = document.querySelector('.x-win');
+const Owin = document.querySelector('.o-win');
+const draw = document.querySelector('.draw');
+/* init Data */
+let gaming = false
 let isX = false;
-function start() {
-    startBoard.classList.add('hide');
-    document.body.style.backgroundColor = "#FF6D70"
-    gameBoard.classList.remove('hide');
+let winX = Number(localStorage.getItem('winX')) || 0;
+let winO = Number(localStorage.getItem('winO')) || 0;
+let type = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+let status = [0,0,0,0,0,0,0,0,0];
+/* Funcion */
+function start(e) {
+    if (e.target.textContent === 'START') {
+        startBoard.classList.add('hide');
+        document.body.style.backgroundColor = "#FF6D70"
+        gameBoard.classList.remove('hide');
+    }
+    /* init */
+    ox.forEach(o => o.textContent = '');
+    isX = false;
+    gaming = true;
+    status = [0,0,0,0,0,0,0,0,0];
+    showTurn();
+    updateScore();
+    /* Switch Board */
+    game.classList.remove('hide');
+    Xwin.classList.add('hide');
+    Owin.classList.add('hide');
+    draw.classList.add('hide');
 }
-function handleBoardClick() {
+function handleBoardClick(e) {
+    /* Check is Have O X */
+    check = e.target.textContent ? true : false
+    if (check) return;
+    /* But O or X */
+    e.target.textContent = isX ? '🞨' : '○';
+    changeOXColor(e);
+    /* Update Board Status */
+    status[e.target.dataset.index] = isX ? -1 : 1;
+    /* Check Win & Show Turn */
+    let anser = checkWin();
+    if (anser) showWinner(anser);
     isX ? isX = false : isX = true;
-    pawn[this.value].textContent = isX ? svgX : svgO;
+    showTurn();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+function showTurn() {
+    if (!isX) {
+        Xturn.style.visibility = 'hidden';
+        Oturn.style.visibility = 'visible';
+    } else {
+        Oturn.style.visibility = 'hidden';
+        Xturn.style.visibility = 'visible';
+    }
+}
+function changeOXColor(e) {
+    if (e.target.textContent === '○') {
+        e.target.style.color = 'black';
+        e.target.style.fontSize = '80px';
+    } else {
+        e.target.style.color = 'white';
+        e.target.style.fontSize = '90px';
+    }
+}
+function checkWin() {
+    for (let i = 0; i < 8; i+=1) {
+        const [a, b, c] = type[i];
+        const sum = status[a] + status[b] + status[c];
+        if (sum === 3) {
+          winO += 1;
+          updateScore()
+          gaming = false;
+          return 1;
+        }
+        if (sum === -3) {
+          winX += 1;
+          updateScore()
+          gaming = false;
+          return -1;
+        }
+    }
+    if (status.indexOf(0) === -1) {
+        gaming = false;
+        return 3;
+    }
+}
+function updateScore() {
+    localStorage.setItem("winO", winO);
+    scoreO.textContent = winO;
+    localStorage.setItem("winX", winX);
+    scoreX.textContent = winX;
+}
+function showWinner(num) {
+    if (num === 1) {
+        game.classList.add('hide');
+        Owin.classList.remove('hide');
+        console.log('O Win');
+    }
+    if (num === -1) {
+        game.classList.add('hide');
+        Xwin.classList.remove('hide');
+        console.log('X Win');
+    }
+    if (num === 3) {
+        game.classList.add('hide');
+        draw.classList.remove('hide');
+        console.log('Draw');
+    }
+}
 startBtn.forEach(button => button.addEventListener('click', start));
-gameBoard.addEventListener('click', handleBoardClick);
+game.addEventListener('click', (e) => gaming && handleBoardClick(e));
