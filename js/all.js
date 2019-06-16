@@ -1,19 +1,12 @@
 /* Selector */
 const startBtn = document.querySelectorAll('.startBtn');
-const startBoard = document.querySelector('#start');
-const gameBoard = document.querySelector('#play');
 const game = document.querySelector('.game');
-const ox = document.querySelectorAll('.ox');
-const scoreX = document.querySelector('.x-score');
-const scoreO = document.querySelector('.o-score');
-const Xturn = document.querySelector('.x-turn');
-const Oturn = document.querySelector('.o-turn');
 /* Winner Board */
 const Xwin = document.querySelector('.x-win');
 const Owin = document.querySelector('.o-win');
 const draw = document.querySelector('.draw');
 /* init Data */
-let gaming = false
+let gaming = false;
 let isX = false;
 let winX = Number(localStorage.getItem('winX')) || 0;
 let winO = Number(localStorage.getItem('winO')) || 0;
@@ -30,12 +23,15 @@ let type = [
 let status = [0,0,0,0,0,0,0,0,0];
 /* Funcion */
 function start(e) {
+    const startBoard = document.querySelector('#start');
+    const gameBoard = document.querySelector('#play');
     if (e.target.textContent === 'START') {
         startBoard.classList.add('hide');
-        document.body.style.backgroundColor = "#FF6D70"
+        document.body.style.backgroundColor = "#FF6D70";
         gameBoard.classList.remove('hide');
     }
     /* init */
+    const ox = document.querySelectorAll('.ox');
     ox.forEach(o => o.textContent = '');
     isX = false;
     gaming = true;
@@ -50,7 +46,7 @@ function start(e) {
 }
 function handleBoardClick(e) {
     /* Check is Have O X */
-    check = e.target.textContent ? true : false
+    check = e.target.textContent ? true : false;
     if (check) return;
     /* But O or X */
     e.target.textContent = isX ? '🞨' : '○';
@@ -64,6 +60,8 @@ function handleBoardClick(e) {
     showTurn();
 }
 function showTurn() {
+    const Xturn = document.querySelector('.x-turn');
+    const Oturn = document.querySelector('.o-turn');
     if (!isX) {
         Xturn.style.visibility = 'hidden';
         Oturn.style.visibility = 'visible';
@@ -87,13 +85,13 @@ function checkWin() {
         const sum = status[a] + status[b] + status[c];
         if (sum === 3) {
           winO += 1;
-          updateScore()
+          updateScore();
           gaming = false;
           return 1;
         }
         if (sum === -3) {
           winX += 1;
-          updateScore()
+          updateScore();
           gaming = false;
           return -1;
         }
@@ -104,6 +102,8 @@ function checkWin() {
     }
 }
 function updateScore() {
+    const scoreX = document.querySelector('.x-score');
+    const scoreO = document.querySelector('.o-score');
     localStorage.setItem("winO", winO);
     scoreO.textContent = winO;
     localStorage.setItem("winX", winX);
@@ -126,5 +126,6 @@ function showWinner(num) {
         console.log('Draw');
     }
 }
+/* Event Listener */
 startBtn.forEach(button => button.addEventListener('click', start));
 game.addEventListener('click', (e) => gaming && handleBoardClick(e));
