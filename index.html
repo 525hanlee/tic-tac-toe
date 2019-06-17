@@ -12,27 +12,51 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="d-flex justify-content-center align-items-center">
+    <!-- Start Board -->
     <div id="start" class="container mx-auto">
-        <div class="row justify-content-center align-items-center mb-4">
-            <div class="col-4 text-white" style="font-style:italic;">TIC</div>
-            <div class="col-4 text-ED494C" style="font-size:130px;">○</div>
-            <div class="col-4 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="120px" height="120px" viewBox="0 0 368 368" fill="white"><path d="m365.65625 66.347656-64-64c-3.125-3.128906-8.183594-3.128906-11.308594 0l-106.34375 106.34375-106.347656-106.34375c-3.125-3.128906-8.183594-3.128906-11.308594 0l-64 64c-1.503906 1.496094-2.34374975 3.527344-2.34374975 5.65625s.83984375 4.160156 2.34374975 5.65625l106.34375 106.328125-106.34375 106.359375c-3.128906 3.128906-3.128906 8.183594 0 11.3125l64 64c3 3 8.308594 3 11.308594 0l106.347656-106.34375 106.34375 106.34375c1.558594 1.558594 3.605469 2.34375 5.65625 2.34375 2.046875 0 4.09375-.785156 5.652344-2.34375l64-64c3.128906-3.128906 3.128906-8.183594 0-11.3125l-106.34375-106.34375 106.34375-106.34375c3.128906-3.128906 3.128906-8.183594 0-11.3125zm-122.886719 111.578125c-.152343.125-.296875.261719-.441406.40625-3.125 3.121094-3.125 8.175781-.007813 11.304688.019532.015625.035157.03125.050782.046875l106.320312 106.320312-52.6875 52.6875-106.273437-106.269531c-.617188-.640625-1.351563-1.179687-2.167969-1.585937-3.289062-1.65625-7.222656-.824219-9.59375 1.878906l-105.964844 105.976562-52.691406-52.6875 106.328125-106.359375c3.128906-3.128906 3.128906-8.183593 0-11.3125l-106.328125-106.328125 52.691406-52.6875 106.316406 106.320313c.019532.015625.035157.03125.050782.046875 3.125 3.113281 8.175781 3.121094 11.304687-.007813.140625-.144531.277344-.289062.40625-.441406l105.921875-105.917969 52.6875 52.6875zm0 0"/></svg>
+        <div class="start-ox row justify-content-center align-items-center mb-4">
+            <!-- 1~3 -->
+            <div class="col-4">
+                <div class="text text-white">TIC</div>
             </div>
+            <div class="col-4 p-2 p-md-4">
+                <div class="circle"></div>
+            </div>
+            <div class="col-4 text-white p-2 p-md-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 368 368" fill="white"><path d="m365.65625 66.347656-64-64c-3.125-3.128906-8.183594-3.128906-11.308594 0l-106.34375 106.34375-106.347656-106.34375c-3.125-3.128906-8.183594-3.128906-11.308594 0l-64 64c-1.503906 1.496094-2.34374975 3.527344-2.34374975 5.65625s.83984375 4.160156 2.34374975 5.65625l106.34375 106.328125-106.34375 106.359375c-3.128906 3.128906-3.128906 8.183594 0 11.3125l64 64c3 3 8.308594 3 11.308594 0l106.347656-106.34375 106.34375 106.34375c1.558594 1.558594 3.605469 2.34375 5.65625 2.34375 2.046875 0 4.09375-.785156 5.652344-2.34375l64-64c3.128906-3.128906 3.128906-8.183594 0-11.3125l-106.34375-106.34375 106.34375-106.34375c3.128906-3.128906 3.128906-8.183594 0-11.3125zm-122.886719 111.578125c-.152343.125-.296875.261719-.441406.40625-3.125 3.121094-3.125 8.175781-.007813 11.304688.019532.015625.035157.03125.050782.046875l106.320312 106.320312-52.6875 52.6875-106.273437-106.269531c-.617188-.640625-1.351563-1.179687-2.167969-1.585937-3.289062-1.65625-7.222656-.824219-9.59375 1.878906l-105.964844 105.976562-52.691406-52.6875 106.328125-106.359375c3.128906-3.128906 3.128906-8.183593 0-11.3125l-106.328125-106.328125 52.691406-52.6875 106.316406 106.320313c.019532.015625.035157.03125.050782.046875 3.125 3.113281 8.175781 3.121094 11.304687-.007813.140625-.144531.277344-.289062.40625-.441406l105.921875-105.917969 52.6875 52.6875zm0 0"/></svg>
+            </div>
+            <!-- Change Line -->
             <div class="w-100"></div>
-            <div class="col-4 text-ED494C" style="font-size:170px;">🞨</div>
-            <div class="col-4 text-white" style="font-style:italic;">TAC</div>
-            <div class="col-4 text-FF6D70" style="font-size:140px;">◎</div>
+            <!-- 4~6 -->
+            <div class="col-4 p-2 p-md-4">
+                <div class="cross"></div>
+            </div>
+            <div class="col-4">
+                <div class="text text-white">TAC</div>
+            </div>
+            <div class="col-4 p-2 p-md-4">
+                <div class="dual-circle text-FF6D70">◎</div>
+            </div>
+            <!-- Change Line -->
             <div class="w-100"></div>
-            <div class="col-4 text-FF6D70" style="font-size:140px;">◎</div>
-            <div class="col-4 text-ED494C" style="font-size:170px;">🞨</div>
-            <div class="col-4 text-white" style="font-style:italic;">TOE</div>
+            <!-- 7~9 -->
+            <div class="col-4 p-2 p-md-4">
+                <div class="dual-circle text-FF6D70">◎</div>
+            </div>
+            <div class="col-4 p-2 p-md-4">
+                <div class="cross"></div>
+            </div>
+            <div class="col-4">
+                <div class="text text-white">TOE</div>
+            </div>
         </div>
         <div class="row">
             <button type="button" class="startBtn btn btn-lg btn-block text-FF6D70">START</button>
         </div>
     </div>
+    <!-- Game Board -->
     <div id="play" class="container mx-auto hide">
+        <!-- Score Board -->
         <div class="score row mb-1">
             <div class="x-mark">🞨</div>
             <div class="x-score">0</div>
@@ -44,6 +68,7 @@
             <div class="x-turn">YOUR TURN!</div>
             <div class="o-turn">YOUR TURN!</div>
         </div>
+        <!-- GamePad -->
         <div class="game row justify-content-center align-items-center mb-4">
             <div class="line-y" style="left:33.333%;"></div>
             <div class="line-y" style="left:66.666%;"></div>
@@ -61,20 +86,23 @@
             <div class="ox col-4" data-index="7"></div>
             <div class="ox col-4" data-index="8"></div>
         </div>
+        <!-- Winner X -->
         <div class="x-win row mb-4 hide">
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center p-2 p-md-4">
                 <div class="big-mark">🞨</div>
                 <div class="winner">WINNER!</div>
             </div>
         </div>
+        <!-- Winner O -->
         <div class="o-win row mb-4 hide">
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center p-2 p-md-4">
                 <div class="circle"></div>
                 <div class="winner">WINNER!</div>
             </div>
         </div>
+        <!-- No Winner -->
         <div class="draw row mb-4 hide">
-            <div class="d-flex flex-row justify-content-center align-items-center">
+            <div class="d-flex flex-row justify-content-center align-items-center p-2 p-md-4">
                 <div class="small-mark">🞨</div>
                 <div class="small-circle"></div>
                 <div class="winner">DRAW!</br>DRAW!</br>DRAW!</div>
