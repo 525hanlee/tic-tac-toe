@@ -156,19 +156,32 @@ div .score .vs{
 /* Winner Style */
 .x-win, .o-win, .draw{
     color: #ED494C;
-
     justify-content: center;
     align-items: center;
     height: 540px;
     width: 540px;
     position: relative;
 }
-.big-mark{
-    font-size: 540px;
-    line-height: 400px;
-    text-align: center;
+.x-win .cross{
+    position: relative;
+    width: 500px;
+    height: 500px;
 }
-.circle{
+.x-win .cross:before, .x-win .cross:after {
+    position: absolute;
+    left: 44%;
+    content: '';
+    height: 100%;
+    width: 40px;
+    background-color: #ED494C;
+}
+.x-win .cross:before {
+    transform: rotate(45deg);
+}
+.x-win .cross:after {
+    transform: rotate(-45deg);
+}
+.o-win .circle{
     width: 400px;
     height: 400px;
     border-radius: 50%;
@@ -196,13 +209,14 @@ div .score .vs{
 
 
 @media screen and (max-width : 700px) {
+    /* Main Size */
+    .start-ox, .game, .x-win, .o-win, .draw, .x-win .cross{
+        width: 90vw;
+        height: 90vw;
+    }
     /* Start Board */
     #start{
         width: 90vw;
-    }
-    .start-ox{
-        width: 90vw;
-        height: 90vw;
     }
     .text{
         font-size: 70%;
@@ -212,17 +226,10 @@ div .score .vs{
         line-height: 100%;
     }
     /* Game Board */
-    #play{
+    #play, .score{
         width: 90vw;
-    }
-    .game{
-        width: 90vw;
-        height: 90vw;
     }
     /* Score */
-    .score{
-        width: 90vw;
-    }
     div .score .vs{
         width: 12vw;
     }
@@ -233,15 +240,7 @@ div .score .vs{
         width: 15vw;
     }
     /* Winner Style */
-    .x-win, .o-win, .draw{
-        width: 90vw;
-        height: 90vw;
-    }
-    .big-mark{
-        font-size: 2900%;
-        line-height: 70%;
-    }
-    .circle{
+    .o-win .circle{
         width: 80vw;
         height: 80vw;
         border: solid 30px #ED494C;
@@ -255,6 +254,6 @@ div .score .vs{
         height: 40vw;
     }
     .winner{
-        font-size: 600%;
+        font-size: 27vw;
     }
 }

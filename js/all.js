@@ -46,7 +46,7 @@ function start(e) {
 }
 function handleBoardClick(e) {
   /* Check is Have O X */
-  check = !!e.target.textContent;
+  check = e.target.textContent ? true : false && e.target.classList[0] != 'ox';
   if (check) return;
   /* But O or X */
   e.target.textContent = isX ? '🞨' : '○';
