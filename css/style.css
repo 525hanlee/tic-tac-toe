@@ -213,7 +213,7 @@ div .score .vs{
     line-height: 100%;
 }
 
-@media screen and (max-width : 700px) {
+@media screen and (max-width : 600px) {
     /* Main Size */
     .start-ox, .game, .x-win, .o-win, .draw, .x-win .cross{
         width: 90vw;
