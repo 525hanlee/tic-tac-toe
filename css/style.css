@@ -117,10 +117,29 @@ div .score .vs{
 .x-mark{
     font-size: 48px;
     border-radius: 8px 0 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.x-mark .cross{
+    width: 70%;
+    height: 70%;
+}
+.x-mark .cross:before, .x-mark .cross:after {
+    width: 4px;
+    background-color: white;
 }
 .o-mark{
     font-size: 40px;
     border-radius: 0 8px 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.o-mark .circle{
+    height: 65%;
+    width: 65%;
+    border: solid 4px white;
 }
 /* YOUR TURN! */
 .x-turn, .o-turn{
@@ -237,10 +256,10 @@ div .score .vs{
         width: 12vw;
     }
     #play .score .x-score, #play .score .o-score{
-        width: 25vw;
+        width: 24.5vw;
     }
     #play .score .x-mark, #play .score .o-mark{
-        width: 15vw;
+        width: 16vw;
     }
     /* Winner Style */
     .o-win .circle{
