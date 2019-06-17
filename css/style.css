@@ -240,6 +240,12 @@ div .score .vs{
     #start{
         width: 90vw;
     }
+    #start .circle{
+        border: solid 3vw #ED494C;
+    }
+    #start .cross:before, #start .cross::after{
+        width: 3vw;
+    }
     .text{
         font-size: 17vw;
     }
