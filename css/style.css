@@ -224,11 +224,11 @@ div .score .vs{
         width: 90vw;
     }
     .text{
-        font-size: 70%;
+        font-size: 17vw;
     }
     .dual-circle{
-        font-size: 100%;
-        line-height: 100%;
+        font-size: 24vw;
+        line-height: 24vw;
     }
     /* Game Board */
     #play, .score{
