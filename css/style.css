@@ -251,6 +251,12 @@ div .score .vs{
     #play, .score{
         width: 90vw;
     }
+    .game .circle{
+        border: solid 5px black;
+    }
+    .game .cross:before, .game .cross::after{
+        width: 1.2vw;
+    }
     /* Score */
     div .score .vs{
         width: 12vw;
