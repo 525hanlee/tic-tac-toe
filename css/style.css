@@ -210,14 +210,16 @@ div .score .vs{
     border-radius: 50%;
     border: solid 45px #ED494C;
 }
-.small-mark{
-    font-size: 280px;
-    line-height: 280px;
+.draw .cross{
+    width: 220px;
+    height: 220px;
 }
-.small-circle{
-    width: 190px;
-    height: 190px;
-    border-radius: 50%;
+.draw .cross:before, .draw .cross::after{
+    width: 20px;
+}
+.draw .circle{
+    width: 180px;
+    height: 180px;
     border: solid 20px #ED494C;
     margin-right: 10px;
 }
@@ -279,11 +281,11 @@ div .score .vs{
         height: 80vw;
         border: solid 30px #ED494C;
     }
-    .small-mark{
-        font-size: 60vw;
-        line-height: 60vw;
+    .draw .cross{
+        width: 46vw;
+        height: 46vw;
     }
-    .small-circle{
+    .draw .circle{
         width: 40vw;
         height: 40vw;
     }
