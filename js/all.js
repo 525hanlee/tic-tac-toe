@@ -46,11 +46,10 @@ function start(e) {
 }
 function handleBoardClick(e) {
   /* Check is Have O X */
-  check = e.target.textContent ? true : false && e.target.classList[0] != 'ox';
-  if (check) return;
+  check = e.target.innerHTML.trim() ? false : true && e.target.classList[0] == 'ox';
+  if (!check) return;
   /* But O or X */
-  e.target.textContent = isX ? '🞨' : '○';
-  changeOXColor(e);
+  e.target.innerHTML = isX ? '<div class="cross"></div>' : '<div class="circle"></div>';
   /* Update Board Status */
   status[e.target.dataset.index] = isX ? -1 : 1;
   /* Check Win & Show Turn */
@@ -68,15 +67,6 @@ function showTurn() {
   } else {
     Oturn.style.visibility = 'hidden';
     Xturn.style.visibility = 'visible';
-  }
-}
-function changeOXColor(e) {
-  if (e.target.textContent === '○') {
-    e.target.style.color = 'black';
-    e.target.style.fontSize = '80px';
-  } else {
-    e.target.style.color = 'white';
-    e.target.style.fontSize = '90px';
   }
 }
 function checkWin() {

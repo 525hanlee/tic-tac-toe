@@ -11,6 +11,32 @@ body{
     font-weight: bold;
     color: white;
 }
+/* Circle Base Style */
+.circle{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+/* Cross Base Style */
+.cross{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.cross:before, .cross:after {
+    position: absolute;
+    left: 46%;
+    content: '';
+    height: 100%;
+    width: 14px;
+    background-color: #ED494C;
+}
+.cross:before {
+    transform: rotate(45deg);
+}
+.cross:after {
+    transform: rotate(-45deg);
+}
 /* Start Page Style*/
 #start{
     width: 540px;
@@ -28,29 +54,7 @@ body{
     font-size: 140px;
 }
 #start .circle{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
     border: solid 14px #ED494C;
-}
-#start .cross{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-#start .cross:before, #start .cross:after {
-    position: absolute;
-    left: 46%;
-    content: '';
-    height: 100%;
-    width: 14px;
-    background-color: #ED494C;
-}
-#start .cross:before {
-    transform: rotate(45deg);
-}
-#start .cross:after {
-    transform: rotate(-45deg);
 }
 /* Game Pad Style*/
 #play{
@@ -61,6 +65,20 @@ body{
     width: 540px;
     height: 540px;
 }
+.game .circle{
+    height: 40%;
+    width: 40%;
+    border: solid 8px black;
+}
+.game .cross{
+    width: 45%;
+    height: 45%;
+}
+.game .cross:before, .game .cross:after {
+    width: 8px;
+    background-color: white;
+}
+/* Score Board */
 .score{
     height: 64px;
     display: flex;
@@ -106,7 +124,7 @@ div .score .vs{
     background: black;
     border-radius: 0 8px 8px 0;
 }
-/* TOUR TURN! */
+/* YOUR TURN! */
 .x-turn, .o-turn{
     font-size: 20px;
 }
@@ -163,23 +181,11 @@ div .score .vs{
     position: relative;
 }
 .x-win .cross{
-    position: relative;
     width: 500px;
     height: 500px;
 }
 .x-win .cross:before, .x-win .cross:after {
-    position: absolute;
-    left: 44%;
-    content: '';
-    height: 100%;
     width: 40px;
-    background-color: #ED494C;
-}
-.x-win .cross:before {
-    transform: rotate(45deg);
-}
-.x-win .cross:after {
-    transform: rotate(-45deg);
 }
 .o-win .circle{
     width: 400px;
