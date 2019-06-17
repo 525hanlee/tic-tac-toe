@@ -61,13 +61,12 @@ function handleBoardClick(e) {
 function showTurn() {
   const Xturn = document.querySelector('.x-turn');
   const Oturn = document.querySelector('.o-turn');
-  if (!isX) {
-    Xturn.style.visibility = 'hidden';
-    Oturn.style.visibility = 'visible';
-  } else {
-    Oturn.style.visibility = 'hidden';
-    Xturn.style.visibility = 'visible';
-  }
+  const Xmark = document.querySelector('.x-mark');
+  const Omark = document.querySelector('.o-mark');
+  Xturn.style.visibility = isX ? 'visible' : 'hidden';
+  Oturn.style.visibility = !isX ? 'visible' : 'hidden';
+  Xmark.style.backgroundColor = isX ? '#ED494C' : 'black';
+  Omark.style.backgroundColor = !isX ? '#ED494C' : 'black';
 }
 function checkWin() {
   for (let i = 0; i < 8; i += 1) {
